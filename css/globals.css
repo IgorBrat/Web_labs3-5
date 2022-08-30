@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(212, 212, 212);
+}
+
+h1 {
+  padding: 0 2rem;
+}
+
+button {
+  width: 7rem;
+  height: 3rem;
+  border: none;
+  margin: 0 1.5rem;
+  cursor: pointer;
+}
+
+li {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(177, 177, 177);
+}
+
+.btn-primary {
+  background-color: rgb(45, 169, 238);
+}
+
+.btn-secondary {
+  background-color: rgb(242, 35, 35);
+}

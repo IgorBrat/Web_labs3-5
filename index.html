@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Lab 3</title>
+</head>
+
+<body>
+  <header>
+    <h1>Good manager</h1>
+    <nav class="header__nav">
+      <ul>
+        <li class="header__nav-item"><span onclick="toggleMainPage()">Home</span></li>
+        <li class="header__nav-item"><span onclick="toggleCreateEditPage()">Create</span></li>
+      </ul>
+    </nav>
+    <div class=" search-container">
+      <input type="text" id="search_input" class="form-control">
+      <button type="button" id="search_btn" class="btn-primary">Search</button>
+      <button type="button" id="cancel_search_btn" class="btn-secondary">Cancel</button>
+    </div>
+  </header>
+  <main id="main_page" class="main__container">
+    <div class="main__container manager">
+      <!-- <form id="add_form">
+        <h2>Add good</h2>
+        <div class="create-good">
+          <span>Name:</span>
+          <input type="text" id="title_input">
+          <span>Price:</span>
+          <input type="text" id="price_input">
+          <span>Brand:</span>
+          <input type="text" id="brand_input">
+        </div>
+        <button type="submit" class="btn-primary" id="submit_btn">Add item</button>
+      </form> -->
+      <div class="sort-goods">
+        <h3>Sort goods by price</h3>
+        <label class="switch">
+          <input type="checkbox" id="sort_items">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="count-price">
+        <h3>Count price of all goods</h3>
+        <button type="button" class="btn-primary" id="count_price_btn">Count</button>
+        <div id="counted_price">
+        </div>
+      </div>
+    </div>
+    <div class="main__container manager-goods">
+      <ul class="manager-goods__list" id="goods_list">
+      </ul>
+    </div>
+  </main>
+  <main id="create-edit_page" class="create-edit_container">
+    <form id="add_form">
+      <h2>Create good</h2>
+      <div class="create-good">
+        <span>Name:</span>
+        <input type="text" id="title_input">
+        <span>Price:</span>
+        <input type="text" id="price_input">
+        <span>Brand:</span>
+        <input type="text" id="brand_input">
+      </div>
+      <button type="submit" class="btn-primary" id="submit_btn">Add good</button>
+    </form>
+  </main>
+  <script type="module" src="js/index.js"></script>
+  <script src="js/toggle.js"></script>
+</body>
+
+</html>
