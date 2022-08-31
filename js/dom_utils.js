@@ -16,6 +16,8 @@ const itemTemplate = ({id, title, price, brand}) => `
   </div>
 </li>`;
 
+// onclick="editFunc(${id})"
+
 const priceTemplate = (price) => `
 <span>Total price: ${price}$</span>
 `;

@@ -14,29 +14,17 @@
     <nav class="header__nav">
       <ul>
         <li class="header__nav-item"><span onclick="toggleMainPage()">Home</span></li>
-        <li class="header__nav-item"><span onclick="toggleCreateEditPage()">Create</span></li>
+        <li class="header__nav-item"><span onclick="toggleCreatePage()">Create</span></li>
       </ul>
     </nav>
     <div class=" search-container">
-      <input type="text" id="search_input" class="form-control">
+      <input placeholder="Search by brand" type="text" id="search_input" class="form-control">
       <button type="button" id="search_btn" class="btn-primary">Search</button>
       <button type="button" id="cancel_search_btn" class="btn-secondary">Cancel</button>
     </div>
   </header>
   <main id="main_page" class="main__container">
     <div class="main__container manager">
-      <!-- <form id="add_form">
-        <h2>Add good</h2>
-        <div class="create-good">
-          <span>Name:</span>
-          <input type="text" id="title_input">
-          <span>Price:</span>
-          <input type="text" id="price_input">
-          <span>Brand:</span>
-          <input type="text" id="brand_input">
-        </div>
-        <button type="submit" class="btn-primary" id="submit_btn">Add item</button>
-      </form> -->
       <div class="sort-goods">
         <h3>Sort goods by price</h3>
         <label class="switch">
@@ -56,22 +44,73 @@
       </ul>
     </div>
   </main>
-  <main id="create-edit_page" class="create-edit_container">
+  <main id="create_page" class="create_container">
     <form id="add_form">
       <h2>Create good</h2>
       <div class="create-good">
-        <span>Name:</span>
-        <input type="text" id="title_input">
+        <span>Type:</span>
+        <select id="type_input">
+          <option value="Jacket">Jacket</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Shirt">Shirt</option>
+          <option value="T-shirt">T-shirt</option>
+          <option value="Jeans">Jeans</option>
+          <option value="Cap">Cap</option>
+          <option value="Shorts">Shorts</option>
+          <option value="Socks">Socks</option>
+        </select>
         <span>Price:</span>
-        <input type="text" id="price_input">
+        <input placeholder="Price in $" type="text" id="price_input">
         <span>Brand:</span>
-        <input type="text" id="brand_input">
+        <select id="brand_input">
+          <option value="Reebok">Reebok</option>
+          <option value="Puma">Puma</option>
+          <option value="Nike">Nike</option>
+          <option value="Tommy Heilfiger">Tommy Heilfiger</option>
+          <option value="Adidas">Adidas</option>
+          <option value="FILA">FILA</option>
+          <option value="Vans">Vans</option>
+        </select>
+        <span>Production date:</span>
+        <input type="date" id="date_input">
       </div>
       <button type="submit" class="btn-primary" id="submit_btn">Add good</button>
     </form>
   </main>
-  <script type="module" src="js/index.js"></script>
-  <script src="js/toggle.js"></script>
+  <main id="edit_page" class="edit_container">
+    <form id="edit_form">
+      <h2>Edit good</h2>
+      <div class="create-good">
+        <span>Type:</span>
+        <select id="type_edit">
+          <option value="Jacket">Jacket</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Shirt">Shirt</option>
+          <option value="T-shirt">T-shirt</option>
+          <option value="Jeans">Jeans</option>
+          <option value="Cap">Cap</option>
+          <option value="Shorts">Shorts</option>
+          <option value="Socks">Socks</option>
+        </select>
+        <span>Price:</span>
+        <input placeholder="Price in $" type="text" id="price_edit">
+        <span>Brand:</span>
+        <select id="brand_edit">
+          <option value="Reebok">Reebok</option>
+          <option value="Puma">Puma</option>
+          <option value="Nike">Nike</option>
+          <option value="Tommy Heilfiger">Tommy Heilfiger</option>
+          <option value="Adidas">Adidas</option>
+          <option value="FILA">FILA</option>
+          <option value="Vans">Vans</option>
+        </select>
+        <span>Production date:</span>
+        <input type="date" id="date_edit">
+      </div>
+      <button type="submit" class="btn-primary" id="edit_submit_btn">Edit good</button>
+    </form>
+  </main>
+  <script src="js/index1.js"></script>
 </body>
 
 </html>

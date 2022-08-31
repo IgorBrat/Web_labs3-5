@@ -1,8 +1,8 @@
-.create-edit_container {
+.create_container, .edit_container {
   display: none;
 }
 
-.create-edit_container.open {
+.create_container.open, .edit_container.open {
   display: flex;
   margin: 10rem auto;
   justify-content: center;

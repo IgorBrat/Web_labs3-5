@@ -12,10 +12,11 @@ const cancelSearchButton = document.getElementById("cancel_search_btn");
 const searchInput = document.getElementById("search_input");
 const countButton = document.getElementById("count_price_btn");
 const sortCheckbox = document.getElementById("sort_items");
-
+let editButtons = document.querySelectorAll('[id^="edit_btn"]');
 
 let items = [];
 let id = 0;
+
 
 const addItem = ({ title, price, brand }) => {
   const newItem = {
@@ -32,13 +33,12 @@ const addItem = ({ title, price, brand }) => {
 submitButton.addEventListener("click", (event) => {
   // Prevents default page reload on submit
   event.preventDefault();
-
   const { title, price, brand } = getInputValues();
 
   addItem({ title, price, brand });
 
   clearInputs();
-
+  toggleMainPage();
 });
 
 searchButton.addEventListener("click", () => {
@@ -77,3 +77,16 @@ sortCheckbox.addEventListener("change", function() {
     renderItemsList(items);
   }
 });
+
+export function editItem(id) {
+  for (let item of items) {
+    if (item.id == id) {
+        const { title, price, brand } = getInputValues();
+        item.title = title;
+        item.price = price;
+        item.brand = brand;
+        clearInputs();
+        toggleEditPage();
+    }
+  }
+}
