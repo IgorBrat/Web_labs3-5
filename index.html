@@ -23,6 +23,15 @@
       <button type="button" id="cancel_search_btn" class="btn-secondary">Cancel</button>
     </div>
   </header>
+  <div class="modal" id="modal">
+    <div class="modal__header">
+      <span class="modal__header-cross" onclick="toggleModal()">&times;</span>
+      <h2>Validation error</h2>
+    </div>
+    <div class="modal__body">
+      <p>Check if inputs are not empty and price is a decimal</p>
+    </div>
+  </div>
   <main id="main_page" class="main__container">
     <div class="main__container manager">
       <div class="sort-goods">
@@ -44,8 +53,8 @@
       </ul>
     </div>
   </main>
-  <main id="create_page" class="create_container">
-    <form id="add_form">
+  <main id="create_page" class="create__container">
+    <form id="add_form" class="add-form">
       <h2>Create good</h2>
       <div class="create-good">
         <span>Type:</span>
@@ -77,8 +86,8 @@
       <button type="submit" class="btn-primary" id="submit_btn">Add good</button>
     </form>
   </main>
-  <main id="edit_page" class="edit_container">
-    <form id="edit_form">
+  <main id="edit_page" class="edit__container">
+    <form id="edit_form" class="edit-form">
       <h2>Edit good</h2>
       <div class="create-good">
         <span>Type:</span>

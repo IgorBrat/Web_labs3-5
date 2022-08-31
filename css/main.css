@@ -20,7 +20,7 @@
   justify-content: flex-start;
 }
 
-#add_form {
+.add-form, .edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,4 +69,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.add-form.close, .edit-form.close {
+  display: none;
 }

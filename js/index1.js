@@ -1,3 +1,5 @@
+// Dom utils functions
+
 const typeInput = document.getElementById("type_input");
 const priceInput = document.getElementById("price_input");
 const brandInput = document.getElementById("brand_input");
@@ -23,7 +25,7 @@ const itemTemplate = ({id, type, price, brand, date}) => `
 </li>`;
 
 const priceTemplate = (price) => `
-<span>Total price: ${price}$</span>
+<span>Total price: ${price.toFixed(2)}$</span>
 `;
 
 const clearInputs = () => {
@@ -41,40 +43,30 @@ const clearEdits = () => {
 };
 
 const validateValues = ({type, price, brand, date}) => {
-  if (!type) {
-    alert("Type is required");
+  if (!type || !price || !brand || !date || isNaN(price)) {
+    console.log(price, "false");
+    toggleModal();
     return false;
   }
-  if (!price) {
-    alert("Price is required");
-    return false;
-  }
-  if (!brand) {
-    alert("Brand is required");
-    return false;
-  }
-  if (!date) {
-    alert("Date is required");
-    return false;
-  }
+  console.log(price);
   return true;
 }
 
- const addItemToPage = ({ id, type, price, brand, date }) => {
+const addItemToPage = ({ id, type, price, brand, date }) => {
   itemsContainer.insertAdjacentHTML(
     "beforeend",
     itemTemplate({ id, type, price, brand, date })
   );
 };
 
- const renderItemsList = (items) => {
+const renderItemsList = (items) => {
   itemsContainer.innerHTML = "";
   for (const item of items) {
     addItemToPage(item);
   }
 };
 
- const addTotalPrice = (price) => {
+const addTotalPrice = (price) => {
   priceContainer.innerHTML = "";
   priceContainer.insertAdjacentHTML(
     "beforeend",
@@ -82,7 +74,7 @@ const validateValues = ({type, price, brand, date}) => {
   );
 };
 
- const getInputValues = () => {
+const getInputValues = () => {
   return {
     type: typeInput.value,
     price: priceInput.value,
@@ -100,6 +92,8 @@ const getEditValues = () => {
  };
 };
 
+
+// Managing items
 
 const submitButton = document.getElementById("submit_btn");
 const editSubmitButton = document.getElementById("edit_submit_btn");
@@ -195,7 +189,7 @@ function changeCurrId(id) {
   currId = id;
 }
 
-//
+// Toggle functions
 
 const CLOSE_CLASSNAME = "close";
 const OPEN_CLASSNAME = "open";
@@ -203,6 +197,11 @@ const OPEN_CLASSNAME = "open";
 const mainPage = document.getElementById("main_page");
 const createPage = document.getElementById("create_page");
 const editPage = document.getElementById("edit_page");
+const modal = document.getElementById("modal");
+
+const addForm = document.getElementById("add_form");
+const editForm = document.getElementById("edit_form");
+
 
 function toggleMainPage() {
   if (mainPage.classList.contains(CLOSE_CLASSNAME)) {
@@ -227,8 +226,18 @@ function toggleEditPage() {
   editPage.classList.toggle(OPEN_CLASSNAME);
 }
 
+function toggleModal() {
+  modal.classList.toggle(OPEN_CLASSNAME);
+  if (createPage.classList.contains(OPEN_CLASSNAME)) {
+    addForm.classList.toggle(CLOSE_CLASSNAME);
+  }
+  if (editPage.classList.contains(OPEN_CLASSNAME)) {
+    editForm.classList.toggle(CLOSE_CLASSNAME);
+  }
+}
 
-//
+
+// Edit item onclick
 
 function editFunc(clicked_id) {
   toggleEditPage();
