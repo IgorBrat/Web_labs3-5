@@ -43,12 +43,10 @@ const clearEdits = () => {
 };
 
 const validateValues = ({type, price, brand, date}) => {
-  if (!type || !price || !brand || !date || isNaN(price)) {
-    console.log(price, "false");
+  if (!type || !price || !brand || !date) {
     toggleModal();
     return false;
   }
-  console.log(price);
   return true;
 }
 
