@@ -1,6 +1,5 @@
 // TODO: Make backend and insert url
-const BASE_URL = "";
-const RESOURSE_URL = `${BASE_URL}/good`;
+const RESOURSE_URL = `/clothes`;
 
 // Base logic for request
 
@@ -27,7 +26,6 @@ const baseRequest = async ({ urlPath = "", method = "GET", body = null }) => {
 
 export const getAllItems = async () => {
   const response = await baseRequest({ method: "GET" });
-
   return await response.json();
 };
 
