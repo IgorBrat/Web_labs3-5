@@ -19,7 +19,7 @@ const itemTemplate = ({id, type, price, brand, date}) => `
       Edit
     </button>
     <button id="${DELETE_BUTTON_PREFIX}${id}" type="button" class="btn-secondary delete-btn"">
-      Edit
+      Delete
     </button>
   </div>
 </li>`;
@@ -38,9 +38,9 @@ export const clearInputs = () => {
 export const validateValues = ({type, price, brand, date}) => {
   if (!type || !price || !brand || !date) {
     alert("Check if ypur inputs are not empty");
-    return False;
+    return false;
   }
-  return True;
+  return true;
 }
 
 export const addItemToPage = ({ id, type, price, brand, date }, onEditItem, onDeleteItem) => {

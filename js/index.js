@@ -32,11 +32,9 @@ const onEditItem = async (element) => {
   refetchAllItems();
 };
 
-// const onDeleteItem = (id) => deleteItem(id).then(refetchAllItems);
-
 const onDeleteItem = async (element) => {
   const itemId = element.target.id.replace(DELETE_BUTTON_PREFIX, "");
-  await deleteItem(id).then(refetchAllItems);
+  await deleteItem(itemId).then(refetchAllItems);
 };
 
 const refetchAllItems = async () => {
@@ -45,19 +43,6 @@ const refetchAllItems = async () => {
   renderItemsList(items, onEditItem, onDeleteItem);
 };
 
-const addItem = ({ type, price, brand, date }) => {
-  const newItem = {
-    id: id,
-    type: type,
-    price: price,
-    brand: brand,
-    date: date,
-  };
-  id += 1;
-  items.push(newItem);
-  addItemToPage(newItem);
-}
-
 submitButton.addEventListener("click", (event) => {
   // Prevents default page reload on submit
   event.preventDefault();
@@ -65,12 +50,12 @@ submitButton.addEventListener("click", (event) => {
   let res = validateValues({ type, price, brand, date });
   if (res) {
     clearInputs();
-    postItem(
+    postItem({
       type,
       price,
       brand,
       date,
-    );
+    });
   }
 });
 
