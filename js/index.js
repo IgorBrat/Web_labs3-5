@@ -27,9 +27,13 @@ let items = [];
 
 const onEditItem = async (element) => {
   const itemId = element.target.id.replace(EDIT_BUTTON_PREFIX, "");
-  await updateItem(itemId, getInputValues())
-  clearInputs();
-  refetchAllItems();
+  const { type, price, brand, date } = getInputValues();
+  let res = validateValues({ type, price, brand, date });
+  if (res) {
+    await updateItem(itemId, { type, price, brand, date });
+    clearInputs();
+    refetchAllItems();
+  }
 };
 
 const onDeleteItem = async (element) => {
@@ -44,8 +48,6 @@ const refetchAllItems = async () => {
 };
 
 submitButton.addEventListener("click", (event) => {
-  // Prevents default page reload on submit
-  event.preventDefault();
   const { type, price, brand, date } = getInputValues();
   let res = validateValues({ type, price, brand, date });
   if (res) {
@@ -56,6 +58,7 @@ submitButton.addEventListener("click", (event) => {
       brand,
       date,
     });
+    refetchAllItems();
   }
 });
 

@@ -37,7 +37,7 @@ export const clearInputs = () => {
 
 export const validateValues = ({type, price, brand, date}) => {
   if (!type || !price || !brand || !date) {
-    alert("Check if ypur inputs are not empty");
+    alert("Check if your inputs are not empty");
     return false;
   }
   return true;
